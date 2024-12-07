@@ -39,9 +39,10 @@ const contactsSlice = createSlice({
           addContact.rejected,
           deleteContact.rejected
         ),
-        (state) => {
-          state.isLoading = false;
+        (state, { error }) => {
+          state.loading = false;
           state.isError = true;
+          state.error = error.message;
         }
       )
       .addMatcher(
@@ -51,7 +52,7 @@ const contactsSlice = createSlice({
           deleteContact.fulfilled
         ),
         (state) => {
-          state.isLoading = false;
+          state.loading = false;
         }
       );
   },
