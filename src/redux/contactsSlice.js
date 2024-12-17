@@ -59,7 +59,7 @@ const contactsSlice = createSlice({
 });
 
 export const selectFilteredContacts = createSelector(
-  [(state) => state.contacts.items, (state) => state.filters.name],
+  [(state) => state.contacts.items, (state) => state.filters.filters.name],
   (contacts, filter) => {
     const normalizedFilter = filter ? filter.toLowerCase() : "";
     return contacts.filter((contact) =>
